@@ -47,6 +47,7 @@ chmod -R 770 /var/www/moodledata
 
 # Update NGINX configuration
 echo "Updating NGINX configuration..."
+cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
 cat << 'EOF' > /etc/nginx/sites-available/default
 server {
     listen 80;
