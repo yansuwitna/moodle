@@ -4,7 +4,7 @@
 echo "ISIKAN DATA USERNAME, PASS dan DATABASE"
 read -p "Masukkan Username PostgreSQL : " username
 read -p "Masukkan Password PostgreSQL : " password
-read -p "Masukkan Database PostgreSQL: " database
+read -p "Masukkan Database PostgreSQL : " database
 echo
 
 # Update and upgrade the system
