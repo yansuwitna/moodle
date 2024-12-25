@@ -50,14 +50,14 @@ cat << 'EOF' > /etc/nginx/sites-available/default
 server {
     listen 80;
     server_name yourdomain.com;
-    client_max_body_size 10M;
+    client_max_body_size 100M;
     client_body_timeout 120s;
 
     root /var/www/html;
     index index.php;
 
     location / {
-        try_files $uri /index.php;
+        try_files $uri $uri/ /index.php;
     }
 
     location ~ [^/]\.php(/|$) {
