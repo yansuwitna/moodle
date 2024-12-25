@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Get PostgreSQL username and password from user
+echo "ISIKAN DATA USERNAME DAN PASSWORD POSTGREE"
+read -p "Enter PostgreSQL username: " username
+read -p "Enter PostgreSQL password: " password
+echo
+
 # Update and upgrade the system
 echo "Updating and upgrading the system..."
 apt update && apt upgrade -y
@@ -7,11 +13,6 @@ apt update && apt upgrade -y
 # Install PostgreSQL and switch to the postgres user
 echo "Installing PostgreSQL..."
 apt install postgresql -y
-
-# Get PostgreSQL username and password from user
-read -p "Enter PostgreSQL username: " username
-read -sp "Enter PostgreSQL password: " password
-echo
 
 # Switch to postgres user and configure PostgreSQL
 su - postgres <<EOF
