@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # Get PostgreSQL username and password from user
-echo "ISIKAN DATA USERNAME DAN PASSWORD POSTGREE"
-read -p "Enter PostgreSQL username: " username
-read -p "Enter PostgreSQL password: " password
+echo "ISIKAN DATA USERNAME, PASS dan DATABASE"
+read -p "Masukkan Username PostgreSQL : " username
+read -p "Masukkan Password PostgreSQL : " password
+read -p "Masukkan Database PostgreSQL: " database
 echo
 
 # Update and upgrade the system
@@ -18,9 +19,9 @@ apt install postgresql -y
 su - postgres <<EOF
 psql -c "CREATE USER $username WITH PASSWORD '$password';"
 psql -c "\du"
-psql -c "CREATE DATABASE moodle ENCODING 'UTF8' TEMPLATE template0 OWNER $username;"
+psql -c "CREATE DATABASE $database ENCODING 'UTF8' TEMPLATE template0 OWNER $username;"
 psql -c "\l"
-psql -c "\c moodle"
+psql -c "\c $database"
 psql -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO $username;"
 psql -c "GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO $username;"
 EOF
@@ -105,3 +106,4 @@ echo "Moodle installation and configuration completed successfully!"
 echo "Server IP address: $server_ip"
 echo "PostgreSQL username: $username"
 echo "PostgreSQL password: $password"
+echo "PostgreSQL Datbase: $database"
