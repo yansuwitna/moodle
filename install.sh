@@ -96,4 +96,11 @@ systemctl restart php8.2-fpm
 echo "Checking PHP-FPM status..."
 systemctl status php8.2-fpm
 
+# Get the server's IP address
+server_ip=$(hostname -I | awk '{print $1}')
+
+# Display configuration details
 echo "Moodle installation and configuration completed successfully!"
+echo "Server IP address: $server_ip"
+echo "PostgreSQL username: $username"
+echo "PostgreSQL password: $password"
