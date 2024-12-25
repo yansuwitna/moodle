@@ -2,7 +2,7 @@
 
 # Update package index
 echo "Updating package index..."
-sudo apt update
+apt update
 
 # Install dependencies
 echo "Installing dependencies..."
