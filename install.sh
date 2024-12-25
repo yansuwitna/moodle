@@ -8,15 +8,20 @@ apt update && apt upgrade -y
 echo "Installing PostgreSQL..."
 apt install postgresql -y
 
+# Get PostgreSQL username and password from user
+read -p "Enter PostgreSQL username: " username
+read -sp "Enter PostgreSQL password: " password
+echo
+
 # Switch to postgres user and configure PostgreSQL
-su - postgres <<'EOF'
-psql -c "CREATE USER admin WITH PASSWORD 'Admin123!@#';"
+su - postgres <<EOF
+psql -c "CREATE USER $username WITH PASSWORD '$password';"
 psql -c "\du"
-psql -c "CREATE DATABASE moodle ENCODING 'UTF8' TEMPLATE template0 OWNER admin;"
+psql -c "CREATE DATABASE moodle ENCODING 'UTF8' TEMPLATE template0 OWNER $username;"
 psql -c "\l"
 psql -c "\c moodle"
-psql -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO admin;"
-psql -c "GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO admin;"
+psql -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO $username;"
+psql -c "GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO $username;"
 EOF
 
 # Exit postgres user
