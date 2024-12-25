@@ -103,7 +103,7 @@ server_ip=$(hostname -I | awk '{print $1}')
 
 # Display configuration details
 echo "Moodle installation and configuration completed successfully!"
-echo "Server IP address: $server_ip"
+echo "Server IP address: http://$server_ip"
 echo "PostgreSQL username: $username"
 echo "PostgreSQL password: $password"
 echo "PostgreSQL Datbase: $database"
