@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#PHP 8.2
 # Get PostgreSQL username and password from user
 echo "ISIKAN DATA USERNAME, PASS dan DATABASE"
 read -p "Masukkan Username PostgreSQL : " username
