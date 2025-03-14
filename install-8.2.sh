@@ -36,7 +36,7 @@ apt install php-fpm php-pgsql php-mbstring php-xmlrpc php-soap php-gd php-xml ph
 
 # Download and extract Moodle
 echo "Downloading Moodle..."
-wget https://download.nanatech.id/moodle405.zip -O moodle.zip && unzip moodle.zip && rm -R /var/www/html/* && cp -R moodle/* /var/www/html
+git clone git://git.moodle.org/moodle.git && rm -R /var/www/html/* && cp -R moodle/* /var/www/html
 
 # Set proper permissions for Moodle directory
 echo "Setting permissions for Moodle directory..."
