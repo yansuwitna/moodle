@@ -36,7 +36,7 @@ apt install php-fpm php-pgsql php-mbstring php-xmlrpc php-soap php-gd php-xml ph
 
 # Download and extract Moodle
 echo "Downloading Moodle..."
-wget https://github.com/moodle/moodle/archive/refs/heads/MOODLE_405_STABLE.zip -o moodle.zip && chmod +x moodle.zip && unzip moodle.zip && rm -R /var/www/html/* && cp -R moodle/* /var/www/html
+wget https://github.com/moodle/moodle/archive/refs/heads/MOODLE_405_STABLE.zip -O moodle.zip && chmod +x moodle.zip && unzip moodle.zip && rm -R /var/www/html/* && cp -R moodle/* /var/www/html
 
 # Set proper permissions for Moodle directory
 echo "Setting permissions for Moodle directory..."
