@@ -102,6 +102,12 @@ systemctl restart php8.1-fpm
 echo "Checking PHP-FPM status..."
 systemctl status php8.1-fpm
 
+echo "Menambahkan cron job untuk Moodle..."
+(crontab -u www-data -l 2>/dev/null; echo "*/5 * * * * /usr/bin/php /var/www/html/admin/cli/cron.php > /dev/null 2>&1") | crontab -u www-data -
+echo "Cron job Moodle berhasil ditambahkan."
+
+crontab -u www-data -
+
 # Get the server's IP address
 server_ip=$(hostname -I | awk '{print $1}')
 
